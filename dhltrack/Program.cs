@@ -21,6 +21,7 @@ namespace dhltrack
                 string url = "http://nolp.dhl.de/nextt-online-public/set_identcodes.do?lang=de&idc=" + id;
 
                 System.Net.WebClient wc = new System.Net.WebClient();
+                wc.Encoding = UTF8Encoding.UTF8;
                 string htmldata = wc.DownloadString(url);
 
                 if (htmldata.Contains("<div class=\"error\">")) //DHL gibt bei nicht vorhandener ID den Error in dieser CSS-Klasse heraus.
